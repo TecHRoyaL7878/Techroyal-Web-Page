@@ -430,7 +430,7 @@ const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyUDAcnCEay2r9d_HzyDb
 
 const CREDS = {
   admin: { admin:'tech7878', techroyaladmin:'Admin@2025' },
-  staff: { staff:'rms1234', techroyalstaff:'Staff@2025' }
+  staff: { staff:'rms123', techroyalstaff:'Staff@2025' }
 };
 
 /* ══════════════════════════════════════════════
@@ -524,17 +524,30 @@ function setSyncBar(state, msg) {
   document.getElementById('syncMsg').textContent = msg;
   if (state === 'ok') setTimeout(() => bar.classList.remove('show'), 3000);
 }
+
+let pollTimer = null;
+
 async function syncFromSheet(manual=false) {
   if (!SHEET_URL) { if(manual) toast('No Sheet connected — local mode',true); return; }
-  document.getElementById('refreshBtn').classList.add('spinning');
-  setSyncBar('loading','⟳  Fetching from Google Sheet…');
+  const btn = document.getElementById('refreshBtn');
+  btn.classList.add('spinning');
+  if (manual) setSyncBar('loading','⟳  Fetching from Google Sheet…');
   try {
-    const res  = await fetch(SHEET_URL+'?action=get',{cache:'no-store'});
+    const res  = await fetch(SHEET_URL + '?t=' + Date.now(), {cache:'no-store'});
     const data = await res.json();
-    if (data.apps) {
+    if (data.error) {
+      setSyncBar('err','✗  Sheet error: ' + data.error);
+      if (manual) toast('Sheet error: ' + data.error, true);
+    } else if (Array.isArray(data.apps)) {
       apps = repairApps(data.apps);
       persist();
-      if (data.announcement) { announcement = data.announcement; }
+      if (data.announcement) {
+        announcement = data.announcement;
+        localStorage.setItem('tr_ann', JSON.stringify(announcement));
+      } else {
+        announcement = null;
+        localStorage.removeItem('tr_ann');
+      }
       setSyncBar('ok','✓  Synced · '+new Date().toLocaleTimeString());
       if (manual) toast('Refreshed from Google Sheet ✓');
       renderCatTabs(); render(); showAnnBanner();
@@ -543,14 +556,35 @@ async function syncFromSheet(manual=false) {
     setSyncBar('err','✗  Could not reach Google Sheet — showing local data');
     if (manual) toast('Could not reach Google Sheet',true);
   }
-  document.getElementById('refreshBtn').classList.remove('spinning');
-}
-async function pushToSheet() {
-  if (!SHEET_URL) return;
-  try { await fetch(SHEET_URL,{method:'POST',body:JSON.stringify({action:'save',apps,announcement})}); }
-  catch(e){}
+  btn.classList.remove('spinning');
 }
 
+async function pushToSheet() {
+  if (!SHEET_URL) return;
+  setSyncBar('loading','⟳  Saving to Google Sheet…');
+  try {
+    const res  = await fetch(SHEET_URL, {
+      method:  'POST',
+      headers: {'Content-Type':'text/plain'},
+      body:    JSON.stringify({action:'save', apps, announcement})
+    });
+    const data = await res.json();
+    if (data.ok) {
+      setSyncBar('ok','✓  Saved · '+new Date().toLocaleTimeString());
+    } else {
+      setSyncBar('err','✗  Save failed: '+(data.error||'unknown'));
+    }
+  } catch(e) {
+    setSyncBar('err','✗  Could not save to Google Sheet');
+  }
+}
+
+function startAutoPoll() {
+  if (!SHEET_URL) return;
+  if (pollTimer) clearInterval(pollTimer);
+  // Poll every 30 seconds — all phones silently get fresh data
+  pollTimer = setInterval(() => syncFromSheet(false), 30000);
+}
 /* ══════════════════════════════════════════════
    SPLASH
 ══════════════════════════════════════════════ */
@@ -559,7 +593,7 @@ function enterHub() {
   s.classList.add('out');
   setTimeout(()=>s.style.display='none',700);
   document.getElementById('app').classList.add('visible');
-  updateUI(); renderCatTabs(); render(); syncFromSheet();
+  updateUI(); renderCatTabs(); render(); syncFromSheet(); startAutoPoll();
 }
 
 /* ══════════════════════════════════════════════
@@ -815,7 +849,7 @@ function openEdit(i) {
   openMod('appMod');
 }
 function pickCat(cat){ document.getElementById('m_cat').value=cat; }
-function saveApp() {
+async function saveApp() {
   if(role!=='admin') return;
   const name=document.getElementById('m_name').value.trim();
   const url =document.getElementById('m_url').value.trim();
@@ -841,20 +875,24 @@ function saveApp() {
     opens:       existing.opens||0
   };
   if(editIdx!==null) apps[editIdx]=obj; else apps.push(obj);
-  persist(); pushToSheet(); closeMod('appMod'); renderCatTabs(); render();
+  persist();
+  await pushToSheet();   // wait for Sheet to update
+  closeMod('appMod'); renderCatTabs(); render();
   toast(editIdx!==null?'App updated ✓':'App added ✓');
 }
-function delApp(i) {
+async function delApp(i) {
   if(role!=='admin') return;
   const nm=apps[i]?apps[i].name:'this app';
   if(!confirm('Delete "'+nm+'"?\nThis cannot be undone.')) return;
-  apps.splice(i,1); persist(); pushToSheet(); renderCatTabs(); render(); toast('App deleted');
+  apps.splice(i,1); persist();
+  await pushToSheet();   // wait for Sheet to update
+  renderCatTabs(); render(); toast('App deleted');
 }
 
 /* ══════════════════════════════════════════════
    ANNOUNCEMENT
 ══════════════════════════════════════════════ */
-function saveAnn() {
+async function saveAnn() {
   const text=document.getElementById('ann_text').value.trim();
   if(!text){toast('Please type a message first.',true);return;}
   const vis=[];
@@ -864,7 +902,7 @@ function saveAnn() {
   if(!vis.length) vis.push('all');
   announcement={text,vis,time:new Date().toISOString()};
   localStorage.setItem('tr_ann',JSON.stringify(announcement));
-  pushToSheet(); closeMod('annMod'); showAnnBanner(); toast('Announcement posted ✓');
+  await pushToSheet(); closeMod('annMod'); showAnnBanner(); toast('Announcement posted ✓');
 }
 function loadAnn() {
   try{const r=localStorage.getItem('tr_ann');if(r)announcement=JSON.parse(r);}catch(e){}
@@ -887,10 +925,10 @@ function showAnnBanner() {
     document.getElementById('annDeleteBtn').style.display=role==='admin'?'':'none';
   } else { banner.classList.remove('show'); }
 }
-function deleteAnn() {
+async function deleteAnn() {
   if(role!=='admin') return;
   if(!confirm('Delete this announcement?')) return;
-  announcement=null; localStorage.removeItem('tr_ann'); pushToSheet();
+  announcement=null; localStorage.removeItem('tr_ann'); await pushToSheet();
   document.getElementById('annBanner').classList.remove('show'); toast('Announcement deleted');
 }
 
