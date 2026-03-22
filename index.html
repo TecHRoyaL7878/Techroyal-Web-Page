@@ -6,7 +6,6 @@
 <title>TECH ROYAL – App Hub</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
-/* ── THEME ── */
 :root{
   --g1:#00ff88;--g2:#00cc66;--g3:#009944;--g4:#006622;--g5:#003311;
   --bg:#050f08;--bg2:#020a05;
@@ -31,8 +30,7 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background:radial-gradient(ellipse 90% 55% at 50% -10%,rgba(0,255,136,.08) 0%,transparent 70%),
   repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(0,255,136,.018) 60px),
   repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(0,255,136,.018) 60px);}
-
-/* ── SPLASH ── */
+/* SPLASH */
 #splash{position:fixed;inset:0;z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg2);transition:opacity .7s,transform .7s;}
 #splash.out{opacity:0;transform:scale(1.06);pointer-events:none;}
 .sp-crown{font-size:clamp(52px,13vw,86px);filter:drop-shadow(0 0 24px #00ff88);animation:crownPop .8s cubic-bezier(.16,1,.3,1) both .2s;}
@@ -46,12 +44,10 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
 @keyframes fi{from{opacity:0}to{opacity:1}}
 .sp-btn{margin-top:34px;padding:clamp(12px,2.5vw,16px) clamp(28px,7vw,52px);background:linear-gradient(135deg,var(--g2),var(--g3));border:none;border-radius:12px;cursor:pointer;font-family:'Orbitron',monospace;font-size:clamp(10px,2.2vw,13px);font-weight:700;letter-spacing:clamp(2px,1vw,4px);color:#001a09;box-shadow:var(--glows);animation:fi .5s ease both 2.5s;transition:all .25s;}
 .sp-btn:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(0,255,136,.6);}
-
-/* ── SHELL ── */
+/* SHELL */
 #app{position:relative;z-index:1;display:none;flex-direction:column;min-height:100vh;}
 #app.visible{display:flex;animation:fi .5s ease;}
-
-/* ── HEADER ── */
+/* HEADER */
 header{position:sticky;top:0;z-index:100;background:var(--hbg);backdrop-filter:blur(20px);border-bottom:1px solid rgba(0,255,136,.10);padding:10px clamp(14px,4vw,32px);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
 .hbrand{display:flex;align-items:center;gap:10px;}
 .hcrown{font-size:clamp(20px,4vw,26px);filter:drop-shadow(0 0 8px #00ff88);}
@@ -71,18 +67,16 @@ header{position:sticky;top:0;z-index:100;background:var(--hbg);backdrop-filter:b
 .abadge.show{display:flex;}
 .abadge.admin{background:linear-gradient(135deg,#00ff88,#00cc66);color:#001a09;}
 .abadge.staff{background:linear-gradient(135deg,#00aa55,#006622);color:#e0ffe8;}
-.lout{display:none;padding:6px clamp(8px,2vw,12px);background:transparent;border:1px solid rgba(0,0,0,.12)!important;border-radius:7px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:clamp(10px,2vw,12px);font-weight:600;color:var(--tu);transition:all .2s;white-space:nowrap;}
+.lout{display:none;padding:6px clamp(8px,2vw,12px);background:transparent;border:1px solid rgba(0,0,0,.15)!important;border-radius:7px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:clamp(10px,2vw,12px);font-weight:600;color:var(--tu);transition:all .2s;white-space:nowrap;}
 .lout.show{display:block;}
 .lout:hover{border-color:var(--g4)!important;color:var(--g1);}
-
-/* ── SYNC BAR ── */
+/* SYNC BAR */
 #syncBar{display:none;align-items:center;justify-content:center;gap:8px;padding:6px 16px;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:1px;border-bottom:1px solid rgba(0,255,136,.08);}
 #syncBar.show{display:flex;}
 #syncBar.ok{color:var(--g2);background:rgba(0,255,136,.04);}
 #syncBar.err{color:#ff7755;background:rgba(255,100,0,.04);}
 #syncBar.load{color:var(--tu);background:rgba(0,255,136,.03);}
-
-/* ── ANNOUNCEMENT ── */
+/* ANNOUNCEMENT */
 #annBanner{display:none;margin:clamp(12px,3vw,20px) clamp(14px,4vw,32px) 0;}
 #annBanner.show{display:block;animation:fi .4s ease;}
 .ann-in{display:flex;align-items:flex-start;gap:12px;padding:13px 15px;background:linear-gradient(135deg,rgba(0,180,80,.12),rgba(0,100,40,.08));border:1px solid rgba(0,255,136,.2);border-radius:12px;position:relative;}
@@ -93,11 +87,9 @@ header{position:sticky;top:0;z-index:100;background:var(--hbg);backdrop-filter:b
 .ann-time{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--tu);margin-top:3px;}
 .ann-del{position:absolute;top:9px;right:11px;background:none;border:none;color:var(--tu);cursor:pointer;font-size:15px;padding:2px;}
 .ann-del:hover{color:#ff5566;}
-
-/* ── MAIN ── */
+/* MAIN */
 main{padding:clamp(16px,4vw,34px) clamp(14px,4vw,32px) 100px;max-width:1300px;margin:0 auto;width:100%;flex:1;}
-
-/* ── SEARCH ── */
+/* SEARCH */
 .sw{position:relative;margin-bottom:8px;}
 .si{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--tu);pointer-events:none;}
 #searchInput{width:100%;padding:12px 40px;background:var(--ibg);border:1px solid var(--cbr);border-radius:12px;outline:none;font-family:'Share Tech Mono',monospace;font-size:clamp(12px,2.2vw,14px);color:var(--tm);letter-spacing:1px;transition:all .25s;}
@@ -108,32 +100,28 @@ main{padding:clamp(16px,4vw,34px) clamp(14px,4vw,32px) 100px;max-width:1300px;ma
 .sc:hover{color:var(--g1);}
 .scount{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--tu);margin-bottom:10px;min-height:16px;letter-spacing:1px;}
 .hl{background:rgba(0,255,136,.22);border-radius:2px;color:var(--g1);}
-
-/* ── CAT TABS ── */
+/* CAT TABS */
 .ctw{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-bottom:clamp(12px,3vw,18px);}
 .ctw::-webkit-scrollbar{display:none;}
 .cts{display:flex;gap:7px;min-width:max-content;padding-bottom:2px;}
 .ct{padding:6px 15px;border-radius:20px;border:1px solid var(--cbr);background:transparent;color:var(--tu);font-family:'Orbitron',monospace;font-size:clamp(9px,1.8vw,11px);font-weight:700;letter-spacing:1px;cursor:pointer;transition:all .2s;white-space:nowrap;}
 .ct:hover{border-color:var(--g3);color:var(--g2);}
 .ct.active{background:linear-gradient(135deg,var(--g3),var(--g4));border-color:var(--g3);color:#fff;box-shadow:0 2px 12px rgba(0,180,80,.3);}
-
-/* ── SECTION HEADER ── */
+/* SECTION HEADER */
 .sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:clamp(12px,3vw,20px);flex-wrap:wrap;gap:10px;}
 .stitle{font-family:'Orbitron',monospace;font-size:clamp(9px,2vw,12px);font-weight:600;letter-spacing:4px;color:var(--tu);display:flex;align-items:center;gap:8px;}
 .stitle::before{content:'';display:inline-block;width:18px;height:2px;background:var(--g2);}
 .addbtn{display:none;align-items:center;gap:7px;padding:clamp(8px,1.5vw,10px) clamp(12px,2.5vw,20px);background:linear-gradient(135deg,rgba(0,255,136,.10),rgba(0,180,80,.07));border:1px solid var(--g3)!important;border-radius:10px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:clamp(12px,2.2vw,14px);font-weight:600;color:var(--g1);letter-spacing:1px;transition:all .25s;white-space:nowrap;}
 .addbtn.show{display:flex;}
 .addbtn:hover{background:rgba(0,255,136,.17);box-shadow:var(--glow);transform:translateY(-1px);}
-
-/* ── GRID ── */
+/* GRID */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:clamp(12px,3vw,22px);}
-
-/* ── CARD ── */
+/* CARD */
 .card{background:var(--cb);border:1px solid var(--cbr);border-radius:var(--r);padding:clamp(14px,3vw,22px);transition:all .3s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:11px;animation:cin .45s cubic-bezier(.16,1,.3,1) both;}
 .card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--g2),transparent);opacity:0;transition:opacity .3s;}
 .card:hover:not(.maint){background:var(--cbh);border-color:rgba(0,255,136,.35);box-shadow:var(--glow);transform:translateY(-3px);}
 .card:hover:not(.maint)::before{opacity:1;}
-.card.maint{background:rgba(255,100,0,.04);border-color:rgba(255,140,0,.22);opacity:.88;}
+.card.maint{background:rgba(255,100,0,.04);border-color:rgba(255,140,0,.22);}
 .card.maint .sdot{background:#ff9922;box-shadow:0 0 6px #ff9922;}
 @keyframes cin{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .ctop{display:flex;align-items:center;gap:12px;}
@@ -152,10 +140,10 @@ main{padding:clamp(16px,4vw,34px) clamp(14px,4vw,32px) 100px;max-width:1300px;ma
 .b-new{background:linear-gradient(135deg,#00ff88,#00cc66);color:#001a09;animation:np 2s infinite;}
 @keyframes np{0%,100%{box-shadow:0 0 0 0 rgba(0,255,136,.5)}50%{box-shadow:0 0 0 4px rgba(0,255,136,0)}}
 .b-ver{background:rgba(0,255,136,.07);border:1px solid rgba(0,255,136,.18);color:var(--td);}
-.mrow{display:flex;align-items:center;gap:5px;padding:6px 10px;background:rgba(255,120,0,.09);border:1px solid rgba(255,140,0,.28);border-radius:8px;font-size:11px;font-weight:700;color:#ffaa44;letter-spacing:1px;font-family:'Orbitron',monospace;}
+.mrow{display:flex;align-items:center;gap:7px;padding:6px 10px;background:rgba(255,120,0,.09);border:1px solid rgba(255,140,0,.28);border-radius:8px;font-size:11px;font-weight:700;color:#ffaa44;letter-spacing:1px;font-family:'Orbitron',monospace;}
 .metarow{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;}
 .upd{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--tu);}
-.opn{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--tu);display:flex;align-items:center;gap:3px;}
+.opn{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--tu);}
 .opn span{color:var(--g2);font-weight:700;}
 .lrow{display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.18);border:1px solid rgba(0,255,136,.07);border-radius:8px;padding:7px 11px;}
 .lic{color:var(--tu);font-size:11px;flex-shrink:0;}
@@ -172,13 +160,11 @@ main{padding:clamp(16px,4vw,34px) clamp(14px,4vw,32px) 100px;max-width:1300px;ma
 .ce:hover{color:var(--g1);}
 .cd{flex:0 0 auto;padding:8px 11px;background:rgba(255,60,60,.06);border:1px solid rgba(255,60,60,.18)!important;color:#ff5566;font-size:15px;}
 .cd:hover{background:rgba(255,60,60,.14);}
-
-/* ── EMPTY ── */
+/* EMPTY */
 .empty{grid-column:1/-1;text-align:center;padding:clamp(40px,10vw,80px) 20px;color:var(--tu);}
 .empty .ei{font-size:44px;margin-bottom:14px;opacity:.35;}
 .empty p{font-size:12px;letter-spacing:2px;}
-
-/* ── MODALS ── */
+/* MODALS */
 .mo{position:fixed;inset:0;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;z-index:500;opacity:0;pointer-events:none;transition:opacity .3s;padding:16px;}
 .mo.open{opacity:1;pointer-events:all;}
 .modal{background:var(--mbg);border:1px solid var(--g3);border-radius:16px;padding:clamp(20px,5vw,36px) clamp(16px,5vw,36px);width:min(520px,100%);box-shadow:var(--glows);transform:scale(.93);transition:transform .3s;max-height:90vh;overflow-y:auto;}
@@ -207,18 +193,14 @@ main{padding:clamp(16px,4vw,34px) clamp(14px,4vw,32px) 100px;max-width:1300px;ma
 .mcancel{padding:12px 18px;background:transparent;border:1px solid var(--cbr)!important;border-radius:10px;cursor:pointer;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;color:var(--tu);transition:all .2s;}
 .mcancel:hover{border-color:var(--g4)!important;color:var(--g1);}
 .lerr{color:#ff5566;font-size:11px;text-align:center;margin-top:10px;min-height:16px;font-family:'Share Tech Mono',monospace;}
-
-/* ── FAB ── */
+/* FAB */
 #fab{display:none;position:fixed;bottom:24px;right:20px;z-index:200;flex-direction:column;align-items:flex-end;gap:10px;}
 .fabbtn{padding:10px 16px;background:linear-gradient(135deg,rgba(0,255,136,.12),rgba(0,100,40,.1));border:1px solid var(--g3);border-radius:10px;cursor:pointer;font-family:'Orbitron',monospace;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--g1);transition:all .2s;box-shadow:var(--glow);}
 .fabbtn:hover{background:rgba(0,255,136,.2);}
-
-/* ── TOAST ── */
+/* TOAST */
 #toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:rgba(0,25,12,.95);border:1px solid var(--g3);border-radius:10px;padding:12px 22px;font-family:'Share Tech Mono',monospace;font-size:12px;color:var(--g1);opacity:0;transition:all .3s;z-index:9999;pointer-events:none;white-space:nowrap;box-shadow:var(--glow);}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 #toast.err{color:#ff5566;border-color:rgba(255,85,102,.3);}
-
-/* ── FOOTER ── */
 footer{text-align:center;padding:20px 16px;border-top:1px solid rgba(0,255,136,.06);font-size:10px;color:var(--tu);letter-spacing:2px;font-family:'Share Tech Mono',monospace;}
 footer span{color:var(--g2);}
 ::-webkit-scrollbar{width:5px;}
@@ -237,7 +219,7 @@ footer span{color:var(--g2);}
   <button class="sp-btn" onclick="enterHub()">ENTER HUB &nbsp;→</button>
 </div>
 
-<!-- MAIN APP -->
+<!-- APP -->
 <div id="app">
   <header>
     <div class="hbrand">
@@ -246,7 +228,7 @@ footer span{color:var(--g2);}
     </div>
     <div class="hright">
       <button class="hbtn hbtn-icon" id="themeBtn" onclick="toggleTheme()" title="Toggle theme">🌙</button>
-      <button class="hbtn hbtn-icon" id="refreshBtn" onclick="doRefresh()" title="Refresh">⟳</button>
+      <button class="hbtn hbtn-icon" id="refreshBtn" onclick="manualRefresh()" title="Refresh">⟳</button>
       <button class="hbtn hbtn-staff" id="btnStaff" onclick="openAuth('staff')">STAFF LOGIN</button>
       <button class="hbtn hbtn-admin" id="btnAdmin" onclick="openAuth('admin')">ADMIN LOGIN</button>
       <div class="abadge" id="badge"></div>
@@ -275,14 +257,11 @@ footer span{color:var(--g2);}
       <button class="sc" id="sc" onclick="clearSearch()">✕</button>
     </div>
     <div class="scount" id="scount"></div>
-
     <div class="ctw"><div class="cts" id="catTabs"></div></div>
-
     <div class="sh">
       <div class="stitle" id="secLbl">PUBLIC APPS</div>
       <button class="addbtn" id="addBtn" onclick="openAdd()"><span style="font-size:16px;line-height:1">＋</span> ADD APP</button>
     </div>
-
     <div class="grid" id="grid"></div>
   </main>
 
@@ -290,10 +269,7 @@ footer span{color:var(--g2);}
 </div>
 
 <div id="toast"></div>
-
-<div id="fab">
-  <button class="fabbtn" onclick="openMod('annMod')">📢 ANNOUNCE</button>
-</div>
+<div id="fab"><button class="fabbtn" onclick="openMod('annMod')">📢 ANNOUNCE</button></div>
 
 <!-- AUTH MODAL -->
 <div class="mo" id="authMod">
@@ -312,7 +288,7 @@ footer span{color:var(--g2);}
     <h3>🌐 <span id="appModTitle">ADD APP</span></h3>
     <div class="mf"><label>APP NAME *</label><input type="text" id="m_name" placeholder="MY APP NAME"></div>
     <div class="mf">
-      <label>CATEGORY <span style="color:rgba(0,255,136,.4);font-weight:400;letter-spacing:1px">— what does this app do?</span></label>
+      <label>CATEGORY</label>
       <input type="text" id="m_cat" placeholder="e.g. Finance">
       <div class="pills">
         <span class="pill" onclick="pc('Finance')">Finance</span>
@@ -323,8 +299,8 @@ footer span{color:var(--g2);}
         <span class="pill" onclick="pc('Reports')">Reports</span>
         <span class="pill" onclick="pc('Tools')">Tools</span>
         <span class="pill" onclick="pc('Internal')">Internal</span>
-        <span class="pill" onclick="pc('Demo')">Demo</span>
         <span class="pill" onclick="pc('Sports')">Sports</span>
+        <span class="pill" onclick="pc('Demo')">Demo</span>
       </div>
     </div>
     <div class="mf"><label>VERSION <span style="color:rgba(0,255,136,.4);font-weight:400">(e.g. v1.2)</span></label><input type="text" id="m_ver" placeholder="v1.0"></div>
@@ -343,9 +319,8 @@ footer span{color:var(--g2);}
         <label class="vc"><input type="checkbox" id="v_staff"> STAFF</label>
         <label class="vc"><input type="checkbox" id="v_admin"> ADMIN Only</label>
       </div>
-      <div class="hint">ALL = everyone. STAFF = staff + admin only. ADMIN Only = hidden from everyone else.</div>
     </div>
-    <div class="macts"><button class="mcancel" onclick="closeMod('appMod')">CANCEL</button><button class="msave" onclick="saveApp()">SAVE APP</button></div>
+    <div class="macts"><button class="mcancel" onclick="closeMod('appMod')">CANCEL</button><button class="msave" id="saveAppBtn" onclick="saveApp()">SAVE APP</button></div>
   </div>
 </div>
 
@@ -367,221 +342,277 @@ footer span{color:var(--g2);}
 </div>
 
 <script>
-/* ════════════════════════════════════════════
-   CONFIG  ← Your Google Sheet URL is here
-════════════════════════════════════════════ */
-const SHEET_URL = 'https://script.google.com/macros/s/AKfycbyUDAcnCEay2r9d_HzyDbkavOJBgpclWnVCu9Vdu4IRt5dnEXMH826Q-6F5kbkLhr5D/exec';
+/* ══════════════════════════════════════════════════════
+   YOUR GOOGLE SHEET URL
+══════════════════════════════════════════════════════ */
+var SHEET_URL = 'https://script.google.com/macros/s/AKfycbyUDAcnCEay2r9d_HzyDbkavOJBgpclWnVCu9Vdu4IRt5dnEXMH826Q-6F5kbkLhr5D/exec';
 
-const CREDS = {
-  admin: { admin:'tech7878', techroyaladmin:'tech7878' },
-  staff: { staff:'rms123', techroyalstaff:'rms123' }
+/* ══════════════════════════════════════════════════════
+   PASSWORDS  (admin: tech7878 | staff: rms123)
+══════════════════════════════════════════════════════ */
+var CREDS = {
+  admin: { admin: 'tech7878' },
+  staff: { staff: 'rms123' }
 };
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    STATE
-════════════════════════════════════════════ */
-let role         = 'all';
-let editIdx      = null;
-let pendingRole  = null;
-let searchQuery  = '';
-let activeTab    = 'ALL';
-let announcement = null;
-let pollTimer    = null;
-let isSyncing    = false;  // prevents overlapping fetches
+══════════════════════════════════════════════════════ */
+var role        = 'all';
+var editIdx     = -1;
+var pendingRole = '';
+var searchQuery = '';
+var activeTab   = 'ALL';
+var announcement = null;
+var pollTimer   = null;
+var isSaving    = false; // true while a POST is in-flight
 
-/* ════════════════════════════════════════════
-   DATA REPAIR
-   Ensures every app object has all required
-   fields regardless of what the Sheet sends.
-════════════════════════════════════════════ */
-function repair(arr) {
-  if (!Array.isArray(arr)) return [];
-  return arr.map(a => ({
-    name:        String(a.name        || '').toUpperCase() || 'UNNAMED APP',
-    category:    String(a.category    || ''),
-    version:     String(a.version     || ''),
-    logo:        String(a.logo        || '🌐'),
-    url:         String(a.url         || '#'),
-    apk:         String(a.apk         || ''),
-    maintenance: a.maintenance === true || String(a.maintenance).toUpperCase() === 'TRUE',
-    vis:         Array.isArray(a.vis) && a.vis.length ? a.vis : ['all'],
-    addedAt:     safeDate(a.addedAt),
-    updatedAt:   safeDate(a.updatedAt),
-    opens:       Number(a.opens) || 0
-  }));
+/* ══════════════════════════════════════════════════════
+   APPS ARRAY
+   Source of truth: Google Sheet
+   localStorage = cache only (shown when offline)
+══════════════════════════════════════════════════════ */
+var apps = [];
+
+function loadCache() {
+  try {
+    var r = localStorage.getItem('tr_v3_apps');
+    if (!r) return;
+    var parsed = JSON.parse(r);
+    if (Array.isArray(parsed) && parsed.length > 0) apps = parsed;
+  } catch(e) {}
 }
 
+function saveCache() {
+  try { localStorage.setItem('tr_v3_apps', JSON.stringify(apps)); } catch(e) {}
+}
+
+var openCounts = {};
+function loadOpenCounts() {
+  try { openCounts = JSON.parse(localStorage.getItem('tr_opens') || '{}'); } catch(e) {}
+}
+function saveOpenCounts() {
+  try { localStorage.setItem('tr_opens', JSON.stringify(openCounts)); } catch(e) {}
+}
+
+/* ══════════════════════════════════════════════════════
+   SAFE DATE
+══════════════════════════════════════════════════════ */
 function safeDate(v) {
   try {
     if (!v) return new Date().toISOString();
-    const d = new Date(v);
+    var d = new Date(v);
     return isNaN(d.getTime()) ? new Date().toISOString() : d.toISOString();
   } catch(e) { return new Date().toISOString(); }
 }
 
-/* ════════════════════════════════════════════
-   STORAGE
-   — Sheet is the MASTER source of truth.
-   — localStorage is only a fallback cache
-     for when the Sheet can't be reached.
-   — On every successful Sheet fetch we
-     OVERWRITE local cache completely.
-════════════════════════════════════════════ */
-function loadLocal() {
-  try {
-    const r = localStorage.getItem('tr_apps');
-    return r ? repair(JSON.parse(r)) : null;
-  } catch(e) { return null; }
-}
-function saveLocal() {
-  localStorage.setItem('tr_apps', JSON.stringify(apps));
+/* ══════════════════════════════════════════════════════
+   REPAIR APP OBJECT
+   Ensures every field exists regardless of source
+══════════════════════════════════════════════════════ */
+function repairApp(a) {
+  // Handle vis — can be array, comma string, or missing
+  var vis;
+  if (Array.isArray(a.vis) && a.vis.length > 0) {
+    vis = a.vis.map(function(s){ return String(s).trim().toLowerCase(); }).filter(Boolean);
+  } else if (typeof a.vis === 'string' && a.vis.trim()) {
+    vis = a.vis.split(',').map(function(s){ return s.trim().toLowerCase(); }).filter(Boolean);
+  } else {
+    vis = ['all'];
+  }
+  if (vis.length === 0) vis = ['all'];
+
+  // name: trim + uppercase, skip if empty (these are junk rows from Sheet)
+  var nm = String(a.name || '').trim().toUpperCase();
+
+  return {
+    name:        nm || '(NO NAME)',
+    category:    String(a.category  || '').trim(),
+    version:     String(a.version   || '').trim(),
+    logo:        String(a.logo      || '🌐').trim(),
+    url:         String(a.url       || '').trim(),
+    apk:         String(a.apk       || '').trim(),
+    maintenance: a.maintenance === true || String(a.maintenance).trim().toUpperCase() === 'TRUE',
+    vis:         vis,
+    addedAt:     safeDate(a.addedAt),
+    updatedAt:   safeDate(a.updatedAt),
+    opens:       Number(a.opens) || 0
+  };
 }
 
-// Default sample apps shown until Sheet loads
-let apps = loadLocal() || [];
-let openCounts = JSON.parse(localStorage.getItem('tr_opens') || '{}');
-function saveOpens() { localStorage.setItem('tr_opens', JSON.stringify(openCounts)); }
-
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    SYNC BAR
-════════════════════════════════════════════ */
-function syncBar(state, msg, autohide) {
-  const el = document.getElementById('syncBar');
-  const tx = document.getElementById('syncMsg');
-  el.className = 'show ' + state;
-  tx.textContent = msg;
-  if (autohide) setTimeout(() => el.classList.remove('show'), 3000);
+══════════════════════════════════════════════════════ */
+function setSyncBar(state, msg, hide) {
+  var b = document.getElementById('syncBar');
+  var m = document.getElementById('syncMsg');
+  b.className = 'show ' + state;
+  m.textContent = msg;
+  if (hide) setTimeout(function(){ b.classList.remove('show'); }, 3000);
 }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    FETCH FROM SHEET
-   This is the ONLY place we read data.
-   Both auto-poll and manual refresh call this.
-════════════════════════════════════════════ */
-async function fetchSheet(manual) {
-  if (isSyncing) return;
-  if (pendingPush && !manual) return; // skip auto-poll while saving
-  isSyncing = true;
-  const btn = document.getElementById('refreshBtn');
+   This is the ONLY way data enters the app from the Sheet.
+   Called: on page enter, manual refresh, and auto-poll.
+══════════════════════════════════════════════════════ */
+function fetchFromSheet(isManual, callback) {
+  // Don't fetch while a save is in-flight (prevents stale overwrite)
+  if (isSaving) {
+    if (callback) callback(false);
+    return;
+  }
+
+  var btn = document.getElementById('refreshBtn');
   btn.classList.add('spin');
-  if (manual) syncBar('load', '⟳  Fetching from Google Sheet…', false);
+  if (isManual) setSyncBar('load', '⟳  Fetching from Google Sheet…', false);
 
-  try {
-    // Add timestamp to bypass any CDN/browser cache
-    const url = SHEET_URL + '?ts=' + Date.now();
-    const res = await fetch(url, { cache: 'no-store' });
+  // Unique timestamp busts any CDN or browser cache
+  var url = SHEET_URL + '?t=' + Date.now();
 
-    if (!res.ok) throw new Error('HTTP ' + res.status);
+  fetch(url, { cache: 'no-store' })
+    .then(function(res) {
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.text();
+    })
+    .then(function(raw) {
+      var data = JSON.parse(raw);
 
-    const raw  = await res.text();
-    const data = JSON.parse(raw);
+      if (data.error) {
+        setSyncBar('err', '✗  ' + data.error, false);
+        if (isManual) toast('Sheet error: ' + data.error, true);
+        btn.classList.remove('spin');
+        if (callback) callback(false);
+        return;
+      }
 
-    if (data.error) {
-      syncBar('err', '✗  ' + data.error, false);
-      if (manual) toast('Error: ' + data.error, true);
-    } else if (Array.isArray(data.apps)) {
-      // Sheet is master — but only overwrite if Sheet has data
-      // or local cache is also empty (first-time setup)
-      if (data.apps.length > 0 || apps.length === 0) {
-        apps = repair(data.apps);
-        saveLocal();
+      if (!Array.isArray(data.apps)) {
+        setSyncBar('err', '✗  Bad response from Sheet', false);
+        btn.classList.remove('spin');
+        if (callback) callback(false);
+        return;
+      }
+
+      // ── Only replace local data if Sheet has real apps OR local is empty ──
+      var incoming = data.apps
+        .map(repairApp)
+        .filter(function(a){ return a.url && a.url !== '#'; }); // skip junk rows
+
+      if (incoming.length > 0 || apps.length === 0) {
+        apps = incoming;
+        saveCache();
       }
 
       // Sync announcement
       if (data.announcement && data.announcement.text) {
         announcement = data.announcement;
-        localStorage.setItem('tr_ann', JSON.stringify(announcement));
+        try { localStorage.setItem('tr_ann', JSON.stringify(announcement)); } catch(e) {}
       } else {
         announcement = null;
-        localStorage.removeItem('tr_ann');
+        try { localStorage.removeItem('tr_ann'); } catch(e) {}
       }
 
-      syncBar('ok', '✓  Synced · ' + new Date().toLocaleTimeString(), true);
-      if (manual) toast('Synced from Google Sheet ✓');
-      buildTabs(); render(); showAnn();
-    }
-  } catch(e) {
-    syncBar('err', '✗  Could not reach Google Sheet — showing cached data', false);
-    if (manual) toast('Could not reach Sheet: ' + e.message, true);
-  }
+      setSyncBar('ok', '✓  Synced · ' + new Date().toLocaleTimeString(), true);
+      if (isManual) toast('Synced from Google Sheet ✓');
 
-  btn.classList.remove('spin');
-  isSyncing = false;
-}
-
-/* ════════════════════════════════════════════
-   PUSH TO SHEET
-   Called after every add / edit / delete.
-   Awaited so the Sheet update completes
-   before we return.
-════════════════════════════════════════════ */
-let pendingPush = false; // guard: skip auto-poll while saving
-
-async function pushSheet() {
-  if (!SHEET_URL) return;
-  pendingPush = true;
-  syncBar('load', '⟳  Saving to Google Sheet…', false);
-  try {
-    const body = JSON.stringify({ action: 'save', apps: apps, announcement: announcement });
-    const res  = await fetch(SHEET_URL, {
-      method:  'POST',
-      headers: { 'Content-Type': 'text/plain' },
-      body:    body
+      buildTabs();
+      render();
+      showAnn();
+      btn.classList.remove('spin');
+      if (callback) callback(true);
+    })
+    .catch(function(e) {
+      setSyncBar('err', '✗  Could not reach Google Sheet — showing cached data', false);
+      if (isManual) toast('Cannot reach Sheet: ' + e.message, true);
+      btn.classList.remove('spin');
+      if (callback) callback(false);
     });
-    const data = await res.json();
-    if (data.ok) {
-      syncBar('ok', '✓  Saved · ' + new Date().toLocaleTimeString(), true);
-    } else {
-      syncBar('err', '✗  Save failed: ' + (data.error || 'unknown'), false);
-    }
-  } catch(e) {
-    syncBar('err', '✗  Could not save to Sheet', false);
-  }
-  // Wait 5s for Sheet propagation before allowing auto-poll again
-  setTimeout(() => { pendingPush = false; }, 5000);
 }
 
-/* ════════════════════════════════════════════
-   AUTO-POLL  every 30 seconds
-   All phones automatically get fresh data.
-   No manual refresh needed for visitors.
-════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   PUSH TO SHEET
+   Called after add / edit / delete / announcement.
+   Sets isSaving = true to block auto-poll during write,
+   clears it after 6 seconds (Sheet propagation time).
+══════════════════════════════════════════════════════ */
+function pushToSheet(successMsg, callback) {
+  isSaving = true;
+  setSyncBar('load', '⟳  Saving to Google Sheet…', false);
+
+  var body = JSON.stringify({
+    action:       'save',
+    apps:         apps,
+    announcement: announcement
+  });
+
+  fetch(SHEET_URL, {
+    method:  'POST',
+    headers: { 'Content-Type': 'text/plain' },
+    body:    body
+  })
+  .then(function(res) { return res.text(); })
+  .then(function(raw) {
+    var data = JSON.parse(raw);
+    if (data.ok) {
+      setSyncBar('ok', '✓  ' + (successMsg || 'Saved') + ' · ' + new Date().toLocaleTimeString(), true);
+    } else {
+      setSyncBar('err', '✗  Save failed: ' + (data.error || 'unknown'), false);
+    }
+    // Allow auto-poll again after Sheet propagation delay
+    setTimeout(function(){ isSaving = false; }, 8000);
+    if (callback) callback(data.ok);
+  })
+  .catch(function(e) {
+    setSyncBar('err', '✗  Could not save to Sheet', false);
+    setTimeout(function(){ isSaving = false; }, 8000);
+    if (callback) callback(false);
+  });
+}
+
+/* ══════════════════════════════════════════════════════
+   AUTO-POLL  — every 30 seconds, silent
+   Phone 2 gets fresh data automatically.
+══════════════════════════════════════════════════════ */
 function startPoll() {
   if (pollTimer) clearInterval(pollTimer);
-  pollTimer = setInterval(() => fetchSheet(false), 30000);
+  pollTimer = setInterval(function() {
+    fetchFromSheet(false, null);
+  }, 30000);
 }
 
-function doRefresh() { fetchSheet(true); }
+function manualRefresh() { fetchFromSheet(true, null); }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    THEME
-════════════════════════════════════════════ */
+══════════════════════════════════════════════════════ */
 function toggleTheme() {
-  const h = document.documentElement;
-  const dark = h.getAttribute('data-theme') === 'dark';
+  var h    = document.documentElement;
+  var dark = h.getAttribute('data-theme') === 'dark';
   h.setAttribute('data-theme', dark ? 'light' : 'dark');
   document.getElementById('themeBtn').textContent = dark ? '☀️' : '🌙';
-  localStorage.setItem('tr_theme', dark ? 'light' : 'dark');
+  try { localStorage.setItem('tr_theme', dark ? 'light' : 'dark'); } catch(e) {}
 }
 (function(){
-  const t = localStorage.getItem('tr_theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', t);
-  document.getElementById('themeBtn').textContent = t === 'dark' ? '🌙' : '☀️';
+  try {
+    var t = localStorage.getItem('tr_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    document.getElementById('themeBtn').textContent = t === 'dark' ? '🌙' : '☀️';
+  } catch(e) {}
 })();
 
-/* ════════════════════════════════════════════
-   TIME HELPERS
-════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   TIME
+══════════════════════════════════════════════════════ */
 function ago(iso) {
   try {
-    const d = Math.floor((Date.now() - new Date(iso).getTime()) / 60000);
-    if (d < 1)  return 'just now';
-    if (d < 60) return d + 'm ago';
-    const h = Math.floor(d/60);
+    var m = Math.floor((Date.now() - new Date(iso).getTime()) / 60000);
+    if (m < 1)  return 'just now';
+    if (m < 60) return m + 'm ago';
+    var h = Math.floor(m/60);
     if (h < 24) return h + 'h ago';
-    const dy = Math.floor(h/24);
-    if (dy < 30) return dy + 'd ago';
-    return Math.floor(dy/30) + 'mo ago';
+    var d = Math.floor(h/24);
+    if (d < 30) return d + 'd ago';
+    return Math.floor(d/30) + 'mo ago';
   } catch(e) { return ''; }
 }
 function isNew(iso) {
@@ -589,25 +620,25 @@ function isNew(iso) {
   catch(e) { return false; }
 }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    SPLASH
-════════════════════════════════════════════ */
+══════════════════════════════════════════════════════ */
 function enterHub() {
-  const s = document.getElementById('splash');
+  var s = document.getElementById('splash');
   s.classList.add('out');
-  setTimeout(() => s.style.display = 'none', 700);
+  setTimeout(function(){ s.style.display = 'none'; }, 700);
   document.getElementById('app').classList.add('visible');
   updateUI();
-  // Fetch Sheet immediately on enter — Sheet is master
-  fetchSheet(false).then(() => {
-    buildTabs(); render(); showAnn();
-  });
+  // Show cached data immediately while Sheet loads
+  buildTabs(); render(); showAnn();
+  // Fetch fresh data from Sheet
+  fetchFromSheet(false, null);
   startPoll();
 }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    AUTH
-════════════════════════════════════════════ */
+══════════════════════════════════════════════════════ */
 function openAuth(r) {
   pendingRole = r;
   document.getElementById('authTitle').textContent = r.toUpperCase() + ' LOGIN';
@@ -615,12 +646,12 @@ function openAuth(r) {
   document.getElementById('aPass').value = '';
   document.getElementById('authErr').textContent = '';
   openMod('authMod');
-  setTimeout(() => document.getElementById('aUser').focus(), 280);
+  setTimeout(function(){ document.getElementById('aUser').focus(); }, 280);
 }
 function doAuth() {
-  const u = document.getElementById('aUser').value.trim().toLowerCase();
-  const p = document.getElementById('aPass').value;
-  const pool = CREDS[pendingRole] || {};
+  var u    = document.getElementById('aUser').value.trim().toLowerCase();
+  var p    = document.getElementById('aPass').value;
+  var pool = CREDS[pendingRole] || {};
   if (pool[u] !== undefined && pool[u] === p) {
     role = pendingRole;
     closeMod('authMod');
@@ -634,52 +665,54 @@ function doAuth() {
 function doLogout() { role = 'all'; updateUI(); buildTabs(); render(); showAnn(); toast('Logged out'); }
 
 function updateUI() {
-  const li = role !== 'all';
+  var li = role !== 'all';
   document.getElementById('btnAdmin').style.display = li ? 'none' : '';
   document.getElementById('btnStaff').style.display = li ? 'none' : '';
-  const b = document.getElementById('badge');
+  var b = document.getElementById('badge');
   b.className   = 'abadge' + (li ? ' show ' + role : '');
   b.textContent = li ? role.toUpperCase() : '';
   document.getElementById('logoutBtn').className = 'lout' + (li ? ' show' : '');
   document.getElementById('addBtn').className    = 'addbtn' + (role === 'admin' ? ' show' : '');
   document.getElementById('fab').style.display   = role === 'admin' ? 'flex' : 'none';
-  const lbl = { all:'PUBLIC APPS', staff:'STAFF APPS', admin:'ADMIN · ALL APPS' };
-  document.getElementById('secLbl').textContent  = lbl[role] || 'APPS';
+  var lbls = { all:'PUBLIC APPS', staff:'STAFF APPS', admin:'ADMIN · ALL APPS' };
+  document.getElementById('secLbl').textContent  = lbls[role] || 'APPS';
 }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    VISIBILITY
-════════════════════════════════════════════ */
+══════════════════════════════════════════════════════ */
 function canSee(a) {
-  const v = Array.isArray(a.vis) ? a.vis : ['all'];
+  var v = Array.isArray(a.vis) ? a.vis : ['all'];
   if (role === 'admin') return true;
-  if (v.includes('all')) return true;
-  if (role === 'staff' && v.includes('staff')) return true;
+  if (v.indexOf('all') >= 0) return true;
+  if (role === 'staff' && v.indexOf('staff') >= 0) return true;
   return false;
 }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    CATEGORY TABS
-════════════════════════════════════════════ */
+══════════════════════════════════════════════════════ */
 function buildTabs() {
-  const vis  = apps.filter(canSee);
-  const cats = ['ALL', ...new Set(vis.map(a => a.category).filter(Boolean).sort())];
-  // Reset activeTab if it no longer exists
-  if (!cats.includes(activeTab)) activeTab = 'ALL';
-  const wrap = document.getElementById('catTabs');
+  var vis  = apps.filter(canSee);
+  var seen = {};
+  var cats = ['ALL'];
+  vis.forEach(function(a) { if (a.category && !seen[a.category]) { seen[a.category] = 1; cats.push(a.category); } });
+  cats.sort(function(a,b){ return a === 'ALL' ? -1 : b === 'ALL' ? 1 : a.localeCompare(b); });
+  if (cats.indexOf(activeTab) < 0) activeTab = 'ALL';
+  var wrap = document.getElementById('catTabs');
   wrap.innerHTML = '';
-  cats.forEach(cat => {
-    const b = document.createElement('button');
+  cats.forEach(function(cat) {
+    var b = document.createElement('button');
     b.className = 'ct' + (activeTab === cat ? ' active' : '');
     b.textContent = cat;
-    b.addEventListener('click', () => { activeTab = cat; buildTabs(); render(); });
+    b.addEventListener('click', function(){ activeTab = cat; buildTabs(); render(); });
     wrap.appendChild(b);
   });
 }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    SEARCH
-════════════════════════════════════════════ */
+══════════════════════════════════════════════════════ */
 function onSearch(v) {
   searchQuery = v.trim().toLowerCase();
   document.getElementById('sc').className = 'sc' + (v ? ' show' : '');
@@ -693,114 +726,133 @@ function clearSearch() {
   render();
 }
 function hl(txt, q) {
-  if (!q) return eh(txt);
-  return eh(txt).replace(new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')','gi'), '<span class="hl">$1</span>');
+  var t = eh(txt);
+  if (!q) return t;
+  var re = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+  return t.replace(re, '<span class="hl">$1</span>');
 }
 function eh(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-/* ════════════════════════════════════════════
-   RENDER  — uses createElement (no innerHTML+=)
-════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   RENDER — createElement only (no innerHTML +=)
+══════════════════════════════════════════════════════ */
 function render() {
-  const grid = document.getElementById('grid');
+  var grid = document.getElementById('grid');
   while (grid.firstChild) grid.removeChild(grid.firstChild);
 
-  let vis = apps.filter(canSee);
-  if (activeTab !== 'ALL') vis = vis.filter(a => a.category === activeTab);
-  if (searchQuery) vis = vis.filter(a =>
-    (a.name||'').toLowerCase().includes(searchQuery) ||
-    (a.category||'').toLowerCase().includes(searchQuery)
-  );
+  var vis = apps.filter(canSee);
+  if (activeTab !== 'ALL') vis = vis.filter(function(a){ return a.category === activeTab; });
+  if (searchQuery) vis = vis.filter(function(a){
+    return (a.name||'').toLowerCase().indexOf(searchQuery) >= 0 ||
+           (a.category||'').toLowerCase().indexOf(searchQuery) >= 0;
+  });
 
-  const sc = document.getElementById('scount');
+  var sc = document.getElementById('scount');
   sc.textContent = searchQuery
     ? (vis.length ? vis.length + ' app' + (vis.length !== 1 ? 's' : '') + ' found for "' + searchQuery + '"' : 'No apps found for "' + searchQuery + '"')
     : '';
 
   if (!vis.length) {
-    const e = document.createElement('div'); e.className = 'empty';
-    e.innerHTML = '<div class="ei">' + (searchQuery ? '🔍' : '📭') + '</div><p>' + (searchQuery ? 'NO RESULTS' : 'NO APPS FOR THIS ACCESS LEVEL') + '</p>';
+    var e = document.createElement('div'); e.className = 'empty';
+    e.innerHTML = '<div class="ei">' + (searchQuery ? '🔍' : '📭') + '</div><p>' + (searchQuery ? 'NO RESULTS' : 'NO APPS AVAILABLE') + '</p>';
     grid.appendChild(e); return;
   }
 
-  vis.forEach((a, vi) => {
-    const ri  = apps.indexOf(a);
-    const v   = Array.isArray(a.vis) ? a.vis : ['all'];
-    const key = a.url;
-    const tot = (openCounts[key] || 0) + (a.opens || 0);
+  vis.forEach(function(a, vi) {
+    var ri  = apps.indexOf(a);
+    var v   = Array.isArray(a.vis) ? a.vis : ['all'];
+    var key = a.url || a.name;
+    var tot = (openCounts[key] || 0) + (a.opens || 0);
 
-    const card = document.createElement('div');
+    var card = document.createElement('div');
     card.className = 'card' + (a.maintenance ? ' maint' : '');
     card.style.animationDelay = (vi * 0.05) + 's';
 
     // Logo
-    const logo = document.createElement('div'); logo.className = 'alogo';
-    if (a.logo && a.logo.startsWith('http')) {
-      const img = document.createElement('img'); img.src = a.logo; img.alt = a.name;
-      img.onerror = () => logo.textContent = '🌐';
+    var logo = document.createElement('div'); logo.className = 'alogo';
+    if (a.logo && a.logo.substring(0,4) === 'http') {
+      var img = document.createElement('img'); img.src = a.logo; img.alt = a.name;
+      img.onerror = function(){ logo.textContent = '🌐'; };
       logo.appendChild(img);
     } else { logo.textContent = a.logo || '🌐'; }
 
-    // Top row
-    const ctop = document.createElement('div'); ctop.className = 'ctop';
-    const meta = document.createElement('div'); meta.className = 'ameta';
-    const nm   = document.createElement('div'); nm.className = 'aname'; nm.innerHTML = hl(a.name, searchQuery);
-    const cat  = document.createElement('div'); cat.className = 'acat';  cat.innerHTML = hl(a.category || 'WEB APP', searchQuery);
+    // Top
+    var ctop = document.createElement('div'); ctop.className = 'ctop';
+    var meta = document.createElement('div'); meta.className = 'ameta';
+    var nm   = document.createElement('div'); nm.className   = 'aname'; nm.innerHTML = hl(a.name, searchQuery);
+    var cat  = document.createElement('div'); cat.className  = 'acat';  cat.innerHTML = hl(a.category || 'WEB APP', searchQuery);
     meta.appendChild(nm); meta.appendChild(cat);
-    const dot = document.createElement('div'); dot.className = 'sdot';
+    var dot = document.createElement('div'); dot.className = 'sdot';
     ctop.appendChild(logo); ctop.appendChild(meta); ctop.appendChild(dot);
     card.appendChild(ctop);
 
     // Badges
-    const brow = document.createElement('div'); brow.className = 'brow';
-    if (isNew(a.addedAt)) { const b = document.createElement('span'); b.className = 'bdg b-new'; b.textContent = '✦ NEW'; brow.appendChild(b); }
-    if (a.version)         { const b = document.createElement('span'); b.className = 'bdg b-ver'; b.textContent = a.version; brow.appendChild(b); }
-    if (role === 'admin')  { v.forEach(x => { const b = document.createElement('span'); b.className = 'bdg b-' + x; b.textContent = x.toUpperCase(); brow.appendChild(b); }); }
+    var brow = document.createElement('div'); brow.className = 'brow';
+    if (isNew(a.addedAt)) {
+      var bn = document.createElement('span'); bn.className = 'bdg b-new'; bn.textContent = '✦ NEW'; brow.appendChild(bn);
+    }
+    if (a.version) {
+      var bv = document.createElement('span'); bv.className = 'bdg b-ver'; bv.textContent = a.version; brow.appendChild(bv);
+    }
+    if (role === 'admin') {
+      v.forEach(function(x){
+        var bt = document.createElement('span'); bt.className = 'bdg b-' + x; bt.textContent = x.toUpperCase(); brow.appendChild(bt);
+      });
+    }
     if (brow.children.length) card.appendChild(brow);
 
-    // Maintenance banner
-    if (a.maintenance) { const m = document.createElement('div'); m.className = 'mrow'; m.innerHTML = '🔒 UNDER MAINTENANCE'; card.appendChild(m); }
+    // Maintenance
+    if (a.maintenance) {
+      var mr = document.createElement('div'); mr.className = 'mrow'; mr.innerHTML = '🔒 UNDER MAINTENANCE'; card.appendChild(mr);
+    }
 
     // Meta row
-    const mr = document.createElement('div'); mr.className = 'metarow';
-    const up = document.createElement('div'); up.className = 'upd'; up.textContent = '🕐 ' + ago(a.updatedAt);
-    const op = document.createElement('div'); op.className = 'opn'; op.innerHTML = '👆 <span id="oc_' + ri + '">' + tot + '</span> opens';
-    mr.appendChild(up); mr.appendChild(op); card.appendChild(mr);
+    var mtr = document.createElement('div'); mtr.className = 'metarow';
+    var upd = document.createElement('div'); upd.className = 'upd'; upd.textContent = '🕐 ' + ago(a.updatedAt);
+    var opn = document.createElement('div'); opn.className = 'opn';
+    opn.innerHTML = '👆 <span id="oc_' + ri + '">' + tot + '</span> opens';
+    mtr.appendChild(upd); mtr.appendChild(opn);
+    card.appendChild(mtr);
 
-    // Link row
-    const lr  = document.createElement('div'); lr.className = 'lrow';
-    const lic = document.createElement('span'); lic.className = 'lic'; lic.textContent = '🔗';
-    const lnk = document.createElement('a');   lnk.className = 'alink'; lnk.href = a.url; lnk.target = '_blank'; lnk.rel = 'noopener'; lnk.textContent = a.url;
-    lr.appendChild(lic); lr.appendChild(lnk); card.appendChild(lr);
+    // Link
+    var lr  = document.createElement('div'); lr.className = 'lrow';
+    var lic = document.createElement('span'); lic.className = 'lic'; lic.textContent = '🔗';
+    var lnk = document.createElement('a');
+    lnk.className = 'alink'; lnk.href = a.url; lnk.target = '_blank'; lnk.rel = 'noopener'; lnk.textContent = a.url;
+    lr.appendChild(lic); lr.appendChild(lnk);
+    card.appendChild(lr);
 
-    // Actions
-    const acts = document.createElement('div'); acts.className = 'cacts';
+    // Buttons
+    var acts = document.createElement('div'); acts.className = 'cacts';
 
     if (a.maintenance) {
-      const ob = document.createElement('button'); ob.className = 'cbtn co dis'; ob.textContent = '🔒 UNAVAILABLE'; ob.disabled = true; acts.appendChild(ob);
+      var ob = document.createElement('button'); ob.className = 'cbtn co dis'; ob.textContent = '🔒 UNAVAILABLE'; ob.disabled = true; acts.appendChild(ob);
     } else {
-      const ob = document.createElement('a'); ob.className = 'cbtn co'; ob.href = a.url; ob.target = '_blank'; ob.rel = 'noopener'; ob.innerHTML = '🚀 OPEN';
-      ob.addEventListener('click', () => {
-        openCounts[key] = (openCounts[key] || 0) + 1; saveOpens();
-        const el = document.getElementById('oc_' + ri);
-        if (el) el.textContent = String((openCounts[key] || 0) + (a.opens || 0));
-      });
-      acts.appendChild(ob);
+      var ob2 = document.createElement('a'); ob2.className = 'cbtn co'; ob2.href = a.url; ob2.target = '_blank'; ob2.rel = 'noopener'; ob2.innerHTML = '🚀 OPEN';
+      ob2.addEventListener('click', (function(k, idx2){
+        return function(){
+          openCounts[k] = (openCounts[k] || 0) + 1;
+          saveOpenCounts();
+          var el = document.getElementById('oc_' + idx2);
+          if (el) el.textContent = String((openCounts[k]||0) + (apps[idx2] ? apps[idx2].opens||0 : 0));
+        };
+      })(key, ri));
+      acts.appendChild(ob2);
     }
 
     if (a.apk) {
-      const ab = document.createElement('a'); ab.className = 'cbtn ca'; ab.href = a.apk; ab.target = '_blank'; ab.rel = 'noopener'; ab.innerHTML = '⬇ APK'; acts.appendChild(ab);
+      var ab = document.createElement('a'); ab.className = 'cbtn ca'; ab.href = a.apk; ab.target = '_blank'; ab.rel = 'noopener'; ab.innerHTML = '⬇ APK'; acts.appendChild(ab);
     }
 
-    // Admin edit / delete — closure captures ri
+    // Admin buttons — IIFE captures correct index
     if (role === 'admin') {
-      (function(idx) {
-        const eb = document.createElement('button'); eb.className = 'cbtn ce'; eb.title = 'Edit'; eb.textContent = '✏';
-        eb.addEventListener('click', () => openEdit(idx));
-        const db = document.createElement('button'); db.className = 'cbtn cd'; db.title = 'Delete'; db.textContent = '🗑';
-        db.addEventListener('click', () => delApp(idx));
+      (function(idx3){
+        var eb = document.createElement('button'); eb.className = 'cbtn ce'; eb.title = 'Edit'; eb.textContent = '✏';
+        eb.addEventListener('click', function(){ openEdit(idx3); });
+        var db = document.createElement('button'); db.className = 'cbtn cd'; db.title = 'Delete'; db.textContent = '🗑';
+        db.addEventListener('click', function(){ delApp(idx3); });
         acts.appendChild(eb); acts.appendChild(db);
       })(ri);
     }
@@ -810,159 +862,171 @@ function render() {
   });
 }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    ADD / EDIT / DELETE
-════════════════════════════════════════════ */
+══════════════════════════════════════════════════════ */
 function openAdd() {
   if (role !== 'admin') return;
-  editIdx = null;
+  editIdx = -1;
   document.getElementById('appModTitle').textContent = 'ADD NEW APP';
-  ['m_name','m_cat','m_ver','m_logo','m_url','m_apk'].forEach(id => document.getElementById(id).value = '');
+  ['m_name','m_cat','m_ver','m_logo','m_url','m_apk'].forEach(function(id){ document.getElementById(id).value = ''; });
   document.getElementById('m_maint').checked = false;
   document.getElementById('v_all').checked   = true;
   document.getElementById('v_staff').checked = false;
   document.getElementById('v_admin').checked = false;
   openMod('appMod');
 }
+
 function openEdit(i) {
   if (role !== 'admin') return;
-  editIdx = i; const a = apps[i]; const v = Array.isArray(a.vis) ? a.vis : ['all'];
+  editIdx = i;
+  var a = apps[i];
+  var v = Array.isArray(a.vis) ? a.vis : ['all'];
   document.getElementById('appModTitle').textContent = 'EDIT APP';
-  document.getElementById('m_name').value  = a.name        || '';
-  document.getElementById('m_cat').value   = a.category    || '';
-  document.getElementById('m_ver').value   = a.version     || '';
-  document.getElementById('m_logo').value  = a.logo        || '';
-  document.getElementById('m_url').value   = a.url         || '';
-  document.getElementById('m_apk').value   = a.apk         || '';
+  document.getElementById('m_name').value  = a.name     || '';
+  document.getElementById('m_cat').value   = a.category || '';
+  document.getElementById('m_ver').value   = a.version  || '';
+  document.getElementById('m_logo').value  = a.logo     || '';
+  document.getElementById('m_url').value   = a.url      || '';
+  document.getElementById('m_apk').value   = a.apk      || '';
   document.getElementById('m_maint').checked    = !!a.maintenance;
-  document.getElementById('v_all').checked   = v.includes('all');
-  document.getElementById('v_staff').checked = v.includes('staff');
-  document.getElementById('v_admin').checked = v.includes('admin');
+  document.getElementById('v_all').checked   = v.indexOf('all')   >= 0;
+  document.getElementById('v_staff').checked = v.indexOf('staff') >= 0;
+  document.getElementById('v_admin').checked = v.indexOf('admin') >= 0;
   openMod('appMod');
 }
+
 function pc(cat) { document.getElementById('m_cat').value = cat; }
 
-async function saveApp() {
+function saveApp() {
   if (role !== 'admin') return;
-  const name = document.getElementById('m_name').value.trim();
-  const url  = document.getElementById('m_url').value.trim();
+  var name = document.getElementById('m_name').value.trim();
+  var url  = document.getElementById('m_url').value.trim();
   if (!name || !url) { toast('App Name and Web URL are required!', true); return; }
-  const vis = [];
+  var vis = [];
   if (document.getElementById('v_all').checked)   vis.push('all');
   if (document.getElementById('v_staff').checked) vis.push('staff');
   if (document.getElementById('v_admin').checked) vis.push('admin');
-  if (!vis.length) vis.push('all');
-  const now = new Date().toISOString();
-  const ex  = editIdx !== null ? apps[editIdx] : {};
-  const obj = {
-    name:        name.toUpperCase(),
+  if (vis.length === 0) vis.push('all');
+  var now = new Date().toISOString();
+  var ex  = (editIdx >= 0) ? apps[editIdx] : {};
+  var obj = repairApp({
+    name:        name,
     category:    document.getElementById('m_cat').value.trim(),
     version:     document.getElementById('m_ver').value.trim(),
     logo:        document.getElementById('m_logo').value.trim() || '🌐',
-    url,
+    url:         url,
     apk:         document.getElementById('m_apk').value.trim(),
     maintenance: document.getElementById('m_maint').checked,
-    vis,
-    addedAt:     ex.addedAt  || now,
+    vis:         vis,
+    addedAt:     ex.addedAt || now,
     updatedAt:   now,
-    opens:       ex.opens    || 0
-  };
-  if (editIdx !== null) apps[editIdx] = obj; else apps.push(obj);
-  saveLocal();
+    opens:       ex.opens   || 0
+  });
+
+  if (editIdx >= 0) apps[editIdx] = obj;
+  else apps.push(obj);
+
+  saveCache();        // save to local cache immediately
   closeMod('appMod');
   buildTabs(); render();
-  toast(editIdx !== null ? 'App updated ✓' : 'App added ✓');
-  // Push to Sheet in background — don't re-fetch immediately
-  // (Sheet has ~2-5s propagation delay so immediate re-fetch
-  //  would return stale data and wipe the local change)
-  pushSheet().catch(e => console.error('Push failed:', e));
+  toast(editIdx >= 0 ? 'App updated ✓' : 'App added ✓');
+
+  // Push to Sheet in background — do NOT re-fetch after push
+  pushToSheet(editIdx >= 0 ? 'Updated' : 'App saved', null);
 }
 
-async function delApp(i) {
+function delApp(i) {
   if (role !== 'admin') return;
-  const nm = apps[i] ? apps[i].name : 'this app';
-  if (!confirm('Delete "' + nm + '"?\nThis will remove it for everyone.')) return;
+  var nm = (apps[i] && apps[i].name) ? apps[i].name : 'this app';
+  if (!confirm('Delete "' + nm + '"?\nThis removes it for everyone.')) return;
   apps.splice(i, 1);
-  saveLocal();
+  saveCache();        // update local cache immediately
   buildTabs(); render();
   toast('App deleted ✓');
+
   // Push to Sheet in background
-  pushSheet().catch(e => console.error('Push failed:', e));
+  pushToSheet('Deleted', null);
 }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    ANNOUNCEMENT
-════════════════════════════════════════════ */
-function loadAnn() {
-  try { const r = localStorage.getItem('tr_ann'); if (r) announcement = JSON.parse(r); } catch(e) {}
+══════════════════════════════════════════════════════ */
+function loadAnnCache() {
+  try {
+    var r = localStorage.getItem('tr_ann');
+    if (r) announcement = JSON.parse(r);
+  } catch(e) {}
 }
 function annVisible() {
   if (!announcement || !announcement.text) return false;
-  const v = Array.isArray(announcement.vis) ? announcement.vis : ['all'];
-  if (v.includes('all')) return true;
-  if (role === 'admin' && v.includes('admin')) return true;
-  if (role === 'staff' && v.includes('staff')) return true;
+  var v = Array.isArray(announcement.vis) ? announcement.vis : ['all'];
+  if (v.indexOf('all')   >= 0) return true;
+  if (role === 'admin' && v.indexOf('admin') >= 0) return true;
+  if (role === 'staff' && v.indexOf('staff') >= 0) return true;
   return false;
 }
 function showAnn() {
-  const b = document.getElementById('annBanner');
+  var b = document.getElementById('annBanner');
   if (announcement && annVisible()) {
     document.getElementById('annTxt').textContent  = announcement.text;
-    const d = new Date(announcement.time || Date.now());
-    document.getElementById('annTime').textContent = isNaN(d) ? '' : d.toLocaleString();
+    var d = new Date(announcement.time || Date.now());
+    document.getElementById('annTime').textContent = isNaN(d.getTime()) ? '' : d.toLocaleString();
     b.classList.add('show');
     document.getElementById('annDel').style.display = role === 'admin' ? '' : 'none';
   } else { b.classList.remove('show'); }
 }
-async function saveAnn() {
-  const txt = document.getElementById('ann_txt').value.trim();
+function saveAnn() {
+  var txt = document.getElementById('ann_txt').value.trim();
   if (!txt) { toast('Please type a message.', true); return; }
-  const vis = [];
+  var vis = [];
   if (document.getElementById('ann_all').checked)   vis.push('all');
   if (document.getElementById('ann_staff').checked) vis.push('staff');
   if (document.getElementById('ann_admin').checked) vis.push('admin');
-  if (!vis.length) vis.push('all');
-  announcement = { text: txt, vis, time: new Date().toISOString() };
-  localStorage.setItem('tr_ann', JSON.stringify(announcement));
+  if (vis.length === 0) vis.push('all');
+  announcement = { text: txt, vis: vis, time: new Date().toISOString() };
+  try { localStorage.setItem('tr_ann', JSON.stringify(announcement)); } catch(e) {}
   closeMod('annMod'); showAnn();
   toast('Posting announcement…');
-  await pushSheet();
-  toast('Announcement posted ✓');
+  pushToSheet('Announcement saved', null);
 }
-async function deleteAnn() {
+function deleteAnn() {
   if (role !== 'admin') return;
   if (!confirm('Delete this announcement?')) return;
   announcement = null;
-  localStorage.removeItem('tr_ann');
+  try { localStorage.removeItem('tr_ann'); } catch(e) {}
   document.getElementById('annBanner').classList.remove('show');
-  toast('Removing…');
-  await pushSheet();
   toast('Announcement deleted ✓');
+  pushToSheet('Announcement removed', null);
 }
 
-/* ════════════════════════════════════════════
+/* ══════════════════════════════════════════════════════
    TOAST
-════════════════════════════════════════════ */
-let tt;
-function toast(msg, err) {
-  const el = document.getElementById('toast');
+══════════════════════════════════════════════════════ */
+var toastTimer;
+function toast(msg, isErr) {
+  var el = document.getElementById('toast');
   el.textContent = msg;
-  el.className = 'show' + (err ? ' err' : '');
-  clearTimeout(tt);
-  tt = setTimeout(() => el.className = '', 3000);
+  el.className = 'show' + (isErr ? ' err' : '');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ el.className = ''; }, 3000);
 }
 
-/* ════════════════════════════════════════════
-   MODAL HELPERS
-════════════════════════════════════════════ */
+/* ══════════════════════════════════════════════════════
+   MODALS
+══════════════════════════════════════════════════════ */
 function openMod(id)  { document.getElementById(id).classList.add('open'); }
 function closeMod(id) { document.getElementById(id).classList.remove('open'); }
-document.querySelectorAll('.mo').forEach(o => o.addEventListener('click', e => { if (e.target === o) o.classList.remove('open'); }));
+document.querySelectorAll('.mo').forEach(function(o){
+  o.addEventListener('click', function(e){ if (e.target === o) o.classList.remove('open'); });
+});
 
-/* ════════════════════════════════════════════
-   INIT
-════════════════════════════════════════════ */
-loadAnn();
+/* ══════════════════════════════════════════════════════
+   INIT — runs immediately on page load
+══════════════════════════════════════════════════════ */
+loadCache();
+loadOpenCounts();
+loadAnnCache();
 </script>
 </body>
 </html>
